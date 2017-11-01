@@ -1,0 +1,138 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+//variables
+
+$yellow: #FECA05;
+$blue: #0065B7;
+
+@mixin h1-border-bottom($strong, $color){
+	border-bottom: $strong solid $color;
+}
+
+h1{
+	font-size: 40px;
+}
+h3{
+	font-size: 25px;
+	font-weight: 100;
+	margin-bottom: 25px;
+}
+h1, h3, p{margin-bottom: 25px;}
+a{
+	text-decoration: none; 
+	color: black;
+	&:hover{
+		color: $blue;
+	}
+}
+strong{font-weight: bold;}
+section{
+	width: 75%;
+	margin: 0 auto;
+	padding: 50px 0;
+	overflow: hidden;
+}
+
+.yellow{
+	color: $yellow;
+}
+.blue{
+	color: $blue;
+}
+.title_strong{
+	position: relative;
+	text-transform: uppercase;
+	text-align: center;
+	//display: inline-block;
+	width: 100%;
+	&:after, &:before{
+		width: 25%;
+		display: inline-block;
+		content: "";
+		position: absolute;
+		bottom:50%;
+	}
+	&:before{
+		left: 5%;
+	}
+	&:after{
+		right: 5%;
+	}
+}
+
+.title_strong.yellow{
+	&:after, &:before{
+		@include h1-border-bottom(1px, $yellow) ;
+	}	
+}
+
+.title_strong.blue{
+	&:after, &:before{
+		@include h1-border-bottom(1px, $blue) ;
+	}	
+}
+
+.subtitle{
+	text-align: center;
+	font-style: italic;
+}
+
+.center{
+	text-align: center;
+}
+.right{
+	text-align: right;
+}
+.content_left, .content_right{
+	width: 50%;
+}
+.content_right{
+	float: right;
+}
+.content_left{
+	float: left;	
+}
+.menu_bar{
+	font-size: 20px;
+	ul{ 
+		width: 40%;
+		li{
+			list-style: none;
+			display: inline-block;
+			text-transform: uppercase;
+			width: 50%;
+			float: left;
+			text-align: center;
+		}
+	}
+	.menu_left{
+		float: left;
+	}
+	.menu_right{
+		float: right;
+	}
+}
+table{
+	width: inherit;
+	border-collapse: initial;
+	border-spacing: 5px;
+	tr{
+		td{
+			padding: 5px;
+			font-size: 12px;
+
+			&:first-child{
+				background: #0189C7;
+				color: $yellow;
+				width: 75%;
+			}
+			&:last-child{
+				border: 1px solid $blue;
+			}
+		}
+	}
+}
